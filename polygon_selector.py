@@ -72,8 +72,13 @@ def display_data(selectedData, value):
             }        
         }
     }
+    json.dump(geojson_polygon, open(value+".geojson","w"))
     return json.dumps(geojson_polygon, indent=2)
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    for port in range(5000, 5100):
+        try:
+            app.run_server(port=5002)
+        except:
+            pass
